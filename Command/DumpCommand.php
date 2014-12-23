@@ -112,9 +112,10 @@ class DumpCommand extends ContainerAwareCommand
             new RoutesResponse(
                 $baseUrl,
                 $this->extractor->getRoutes(),
-                $input->getOption('locale'),
+                $this->extractor->getPrefix($input->getOption('locale')),
                 $this->extractor->getHost(),
-                $this->extractor->getScheme()
+                $this->extractor->getScheme(),
+                $input->getOption('locale')
             ),
             'json'
         );
